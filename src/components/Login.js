@@ -1,6 +1,5 @@
-// import LoginImage from "../images/Login-Image.jpg";
 import LoginImage2 from "../images/Login-Image2.jpg";
-import { Navigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
