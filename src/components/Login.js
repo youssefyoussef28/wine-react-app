@@ -1,13 +1,15 @@
 import LoginImage from "../images/Login-Image.jpg";
+import LoginImage2 from "../images/Login-Image2.jpg";
+import { Navigate, Link } from "react-router-dom";
 
 const Login = () => {
   return (
     <>
       <section
-        style={{ backgroundImage: `url(${LoginImage})` }}
-        className="overlay h-[100vh] bg-cover bg-left-bottom  bg-no-repeat "
+        style={{ backgroundImage: `url(${LoginImage2})` }}
+        className="overlay h-[100vh] bg-cover bg-left-center  bg-no-repeat "
       >
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
           {/* <a
             href="#"
             class="flex items-center mb-6 text-2xl font-semibold text-gray-900 "
@@ -19,16 +21,16 @@ const Login = () => {
             />
             Wine House
           </a> */}
-          <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
-            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                 Sign in to your account
               </h1>
-              <form class="space-y-4 md:space-y-6" action="#">
+              <form className="space-y-4 md:space-y-6" action="#">
                 <div>
                   <label
-                    for="email"
-                    class="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="email"
+                    className="block mb-2 text-sm font-medium text-gray-900"
                   >
                     Your email
                   </label>
@@ -36,15 +38,15 @@ const Login = () => {
                     type="email"
                     name="email"
                     id="email"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                    placeholder="name@company.com"
-                    required=""
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    placeholder="name@example.com"
+                    required={true}
                   />
                 </div>
                 <div>
                   <label
-                    for="password"
-                    class="block mb-2 text-sm font-medium text-gray-900"
+                    htmlFor="password"
+                    className="block mb-2 text-sm font-medium text-gray-900"
                   >
                     Password
                   </label>
@@ -53,25 +55,24 @@ const Login = () => {
                     name="password"
                     id="password"
                     placeholder="••••••••"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                    required=""
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    required={true}
                   />
                 </div>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-start">
+                    <div className="flex items-center h-5">
                       <input
                         id="remember"
                         aria-describedby="remember"
                         type="checkbox"
-                        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
-                        required=""
+                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
                       />
                     </div>
-                    <div class="ml-3 text-sm">
+                    <div className="ml-3 text-sm">
                       <label
-                        for="remember"
-                        class="text-gray-500 dark:text-gray-300"
+                        htmlFor="remember"
+                        className="text-gray-500 dark:text-gray-300"
                       >
                         Remember me
                       </label>
@@ -79,22 +80,28 @@ const Login = () => {
                   </div>
                   <a
                     href="#"
-                    class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                    className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Forgot password?
                   </a>
                 </div>
-                <button
-                  type="submit"
-                  class="w-full text-white bg-amber-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                >
-                  Sign in
-                </button>
-                <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                <div className="py-5 md:p-0">
+                  {" "}
+                  <Link to={"/wines"}>
+                    <button
+                      type="submit"
+                      className="w-full text-white bg-amber-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                    >
+                      Sign in
+                    </button>
+                  </Link>
+                </div>
+
+                <p className="text-sm font-light text-gray-500">
                   Don’t have an account yet?{" "}
                   <a
                     href="#"
-                    class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Sign up
                   </a>
