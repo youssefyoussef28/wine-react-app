@@ -20,7 +20,7 @@ const Wines = () => {
   return (
     <>
       <h1 className="text-left p-8 font-light text-3xl bg-amber-600 text-white drop-shadow-lg">
-        Wine House - Select One of our four types of wine
+        Wine House - Double Click to Select One of our four types of wine.
       </h1>
       <div className="bg-white">
         <div className="flex justify-center item p-5">
