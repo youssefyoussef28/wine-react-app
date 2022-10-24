@@ -5,7 +5,7 @@ const Card = (props) => {
     <>
       <div
         key={props.key}
-        className="bg-white rounded-lg border border-gray-200 shadow-md max-w-xs"
+        className="bg-white rounded-lg border border-gray-200 shadow-md max-w-xs w-[400px]"
       >
         <div className="flex justify-center items-center aspect-square h-full">
           <img
