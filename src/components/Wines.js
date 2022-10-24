@@ -1,54 +1,44 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Card from "./Card";
 
 const Wines = () => {
   const [wineType, setWineType] = useState("");
-
-  // const selectedWine = async () => {
-  //   const { fetchedData } = await axios.get(
-  //     `https://api.sampleapis.com/wines/${wineType}`
-  //   );
-
-  //   console.log("DATA", fetchedData);
-  // };
+  const [fetchedData, setFetchedData] = useState("");
 
   const getWine = () => {
     axios
       .get(`https://api.sampleapis.com/wines/${wineType}`)
       .then((response) => {
-        console.log(response.data);
+        setFetchedData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
-  useEffect(() => {
-    // selectedWine();
-    getWine();
-  }, [wineType]);
-
   return (
     <>
-      <h1 className="text-center p-5 font-medium text-3xl">
-        Select One from Our 4 types of wine
+      <h1 className="text-left p-8 font-light text-3xl bg-amber-600 text-white">
+        Wine House - Select One of our four types of wine
       </h1>
 
-      <div className="flex justify-center item">
+      <div className="flex justify-center item p-5">
         <button
           className="px-12 py-3 text-white bg-red-500 rounded-full hover:bg-red-600 m-5 font-medium text-xl focus:ring-red-300 focus:ring-4"
           onClick={() => {
             setWineType("reds");
-            // getWine();
-            console.log(wineType);
+            getWine();
           }}
           type="submit"
         >
-          Red
+          Reds
         </button>
         <button
-          className="px-12 py-3 text-gray-800 bg-white ring-4 ring-black rounded-full hover:bg-black hover:text-white m-5 focus:ring-black focus:ring-4"
+          className="px-12 py-3 text-white bg-blue-600 rounded-full hover:bg-blue-700 m-5 font-medium text-xl focus:ring-blue-300 focus:ring-4"
           onClick={() => {
             setWineType("whites");
             getWine();
-            console.log(wineType);
           }}
           type="submit"
         >
@@ -59,7 +49,6 @@ const Wines = () => {
           onClick={() => {
             setWineType("sparkling");
             getWine();
-            console.log(wineType);
           }}
           type="submit"
         >
@@ -70,12 +59,27 @@ const Wines = () => {
           onClick={() => {
             setWineType("rose");
             getWine();
-            console.log(wineType);
           }}
           type="submit"
         >
           Rose
         </button>
+      </div>
+      <div className="flex flex-col md:flex-row md:flex-wrap  justify-center items-center   gap-4">
+        {" "}
+        {fetchedData &&
+          fetchedData.map((item) => {
+            return (
+              <div key={item.id}>
+                <Card
+                  winery={item.winery}
+                  wine={item.wine}
+                  image={item.image}
+                  location={item.location}
+                />
+              </div>
+            );
+          })}
       </div>
     </>
   );
